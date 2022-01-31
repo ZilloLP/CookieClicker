@@ -13,75 +13,75 @@ public class PlayerProfil {
 	private HashMap<Player, InventoryProfil> invprofiles = plugin.invprofiles;
 	private HashMap<Player, ShopProfil> shops = plugin.shopprofiles;
 	private HashMap<Player, BoosterProfil> booster = plugin.boosterprofiles;
-	private final Player p;
+	private final Player player;
 	private final String uuid;
-	private int ClickerNummer;
-	private int AlltimeNummer;
-	private int TimeNummer;
-	private Long Cookies;
-	private Long Proclick;
-	private Long Clickerclicks;
-	private Long Design;
-	private Long LastMove;
+	private int clickerNummer;
+	private int alltimeNummer;
+	private int timeNummer;
+	private Long cookies;
+	private Long perClick;
+	private Long clickerClicks;
+	private Long design;
+	private Long lastMove;
 	private int CPS;
-	private boolean Over_CPS;
-	private Long LastStats;
+	private boolean OverCPS;
+	private Long lastStats;
 
-	public PlayerProfil(Player p) {
-		this.p = p;
-		this.uuid = p.getUniqueId().toString();
-		this.ClickerNummer = 0;
-		this.AlltimeNummer = 0;
-		this.TimeNummer = 0;
-		this.Cookies = datenmanager.getCookies(uuid);
-		this.Proclick = datenmanager.getProclick(uuid);
-		this.Clickerclicks = datenmanager.getClickerclicks(uuid);
-		this.Design = datenmanager.getDesign(uuid);
-		this.LastMove = System.currentTimeMillis();
+	public PlayerProfil(Player player) {
+		this.player = player;
+		this.uuid = player.getUniqueId().toString();
+		this.clickerNummer = 0;
+		this.alltimeNummer = 0;
+		this.timeNummer = 0;
+		this.cookies = datenmanager.getCookies(uuid);
+		this.perClick = datenmanager.getProclick(uuid);
+		this.clickerClicks = datenmanager.getClickerclicks(uuid);
+		this.design = datenmanager.getDesign(uuid);
+		this.lastMove = System.currentTimeMillis();
 		this.CPS = 0;
-		this.Over_CPS = false;
-		this.LastStats = System.currentTimeMillis();
-		if (!(invprofiles.containsKey(p))) {
-			invprofiles.put(p, new InventoryProfil());
+		this.OverCPS = false;
+		this.lastStats = System.currentTimeMillis();
+		if (!(invprofiles.containsKey(player))) {
+			invprofiles.put(player, new InventoryProfil());
 		}
-		if (!(shops.containsKey(p))) {
-			shops.put(p, new ShopProfil(uuid));
+		if (!(shops.containsKey(player))) {
+			shops.put(player, new ShopProfil(uuid));
 		}
-		if (!(booster.containsKey(p))) {
-			booster.put(p, new BoosterProfil(uuid));
+		if (!(booster.containsKey(player))) {
+			booster.put(player, new BoosterProfil(uuid));
 		}
 	}
 
 	public int getClickerNummer() {
-		return ClickerNummer;
+		return clickerNummer;
 	}
 
 	public int getAlltimeNummer() {
-		return AlltimeNummer;
+		return alltimeNummer;
 	}
 
 	public int getTimeNummer() {
-		return TimeNummer;
+		return timeNummer;
 	}
 
 	public Long getCookies() {
-		return Cookies;
+		return cookies;
 	}
 
 	public Long getProclick() {
-		return Proclick;
+		return perClick;
 	}
 
 	public Long getClickerclicks() {
-		return Clickerclicks;
+		return clickerClicks;
 	}
 
 	public Long getDesign() {
-		return Design;
+		return design;
 	}
 
 	public Long getLastMove() {
-		return LastMove;
+		return lastMove;
 	}
 
 	public int getCPS() {
@@ -89,43 +89,43 @@ public class PlayerProfil {
 	}
 
 	public boolean getOver_CPS() {
-		return Over_CPS;
+		return OverCPS;
 	}
 
 	public Long getLastStats() {
-		return LastStats;
+		return lastStats;
 	}
 
 	public void setClickerNummer(int clickerNummer) {
-		ClickerNummer = clickerNummer;
+		clickerNummer = clickerNummer;
 	}
 
 	public void setAlltimeNummer(int alltimeNummer) {
-		AlltimeNummer = alltimeNummer;
+		alltimeNummer = alltimeNummer;
 	}
 
 	public void setTimeNummer(int timeNummer) {
-		TimeNummer = timeNummer;
+		timeNummer = timeNummer;
 	}
 
 	public void setCookies(Long cookies) {
-		Cookies = cookies;
+		cookies = cookies;
 	}
 
 	public void setProclick(Long perClick) {
-		Proclick = perClick;
+		perClick = perClick;
 	}
 
 	public void setClickerclicks(Long clickerclicks) {
-		Clickerclicks = clickerclicks;
+		clickerClicks = clickerclicks;
 	}
 
 	public void setDesign(Long design) {
-		Design = design;
+		design = design;
 	}
 
 	public void setLastMove(Long lastMove) {
-		LastMove = lastMove;
+		lastMove = lastMove;
 	}
 
 	public void setCPS(int clicks) {
@@ -133,23 +133,23 @@ public class PlayerProfil {
 	}
 
 	public void setOver_CPS(boolean over_CPS) {
-		Over_CPS = over_CPS;
+		OverCPS = over_CPS;
 	}
 
 	public void setLastStats(Long lastStats) {
-		LastStats = lastStats;
+		lastStats = lastStats;
 	}
 
 	public void addCookies(Long cookies) {
-		Cookies = Cookies + cookies;
+		cookies = cookies + cookies;
 	}
 
 	public void addProclick(Long proclick) {
-		Proclick = Proclick + proclick;
+		perClick = perClick + proclick;
 	}
 
 	public void addClickerclicks(Long clicks) {
-		Clickerclicks = Clickerclicks + clicks;
+		clickerClicks = clickerClicks + clicks;
 	}
 
 	public void addCPS(int clicks) {
@@ -157,11 +157,11 @@ public class PlayerProfil {
 	}
 
 	public void removeCookies(Long cookies) {
-		Cookies = Cookies - cookies;
+		cookies = cookies - cookies;
 	}
 
 	public void removePerclick(Long proclick) {
-		Proclick = Proclick - proclick;
+		perClick = perClick - proclick;
 	}
 
 	public void removeCPS(int clicks) {
@@ -173,28 +173,28 @@ public class PlayerProfil {
 	}
 
 	public void reloadProfil() {
-		if (invprofiles.containsKey(p)) {
-			invprofiles.get(p).reloadInventorys();
+		if (invprofiles.containsKey(player)) {
+			invprofiles.get(player).reloadInventorys();
 		}
 	}
 
 	public void UploadStats() {
-		if (booster.containsKey(p)) {
-			booster.get(p).UploadMySQL();
+		if (booster.containsKey(player)) {
+			booster.get(player).UploadMySQL();
 		}
 		datenmanager.setCookies(uuid, getCookies());
 		datenmanager.setProclick(uuid, getProclick());
 		datenmanager.setClickerclicks(uuid, getClickerclicks());
 		datenmanager.setDesign(uuid, getDesign());
-		if (invprofiles.containsKey(p)) {
-			invprofiles.remove(p);
+		if (invprofiles.containsKey(player)) {
+			invprofiles.remove(player);
 		}
-		if (shops.containsKey(p)) {
-			shops.get(p).UploadMySQL();
-			shops.remove(p);
+		if (shops.containsKey(player)) {
+			shops.get(player).UploadMySQL();
+			shops.remove(player);
 		}
-		if (booster.containsKey(p)) {
-			booster.remove(p);
+		if (booster.containsKey(player)) {
+			booster.remove(player);
 		}
 	}
 }

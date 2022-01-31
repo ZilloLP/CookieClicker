@@ -49,37 +49,37 @@ public class StatswallListener implements Listener {
 							PlayerProfil profil = profiles.get(p);
 							if (profil.getLastStats() + 250L < System.currentTimeMillis()) {
 								Long cookies;
-								Long proclick;
+								Long perClick;
 								Long clickerclicks;
 								Long milk;
 								if (profiles.containsKey(k) && boosterprofiles.containsKey(k)) {
 									PlayerProfil k_profil = profiles.get(k);
 									BoosterProfil k_booster = boosterprofiles.get(k);
 									cookies = k_profil.getCookies();
-									proclick = k_profil.getProclick();
+									perClick = k_profil.getProclick();
 									clickerclicks = k_profil.getClickerclicks();
 									milk = k_booster.getMilk();
 								} else {
 									cookies = datenmanager.getCookies(uuid);
-									proclick = datenmanager.getProclick(uuid);
+									perClick = datenmanager.getProclick(uuid);
 									clickerclicks = datenmanager.getClickerclicks(uuid);
 									milk = datenmanager.getMilk(uuid);
 								}
 								LanguageTools languagetools = plugin.languagetools;
 								String name = k.getName();
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_1(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_1(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_2(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_2(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_3(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_3(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_4(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_4(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_5(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_5(name, place, cookies, perClick,
 										clickerclicks, milk));
-								p.sendMessage(languagetools.getPLAYER_STATS_INFO_6(name, place, cookies, proclick,
+								p.sendMessage(languagetools.getPLAYER_STATS_INFO_6(name, place, cookies, perClick,
 										clickerclicks, milk));
 								if (plugin.configtools.getSounds()) {
 									p.playSound(p.getLocation(), XSound.BLOCK_LAVA_POP.parseSound(), 10, 10);
