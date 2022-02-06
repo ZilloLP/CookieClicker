@@ -132,8 +132,8 @@ public class PlayerProfil {
 		CPS = clicks;
 	}
 
-	public void setOver_CPS(boolean over_CPS) {
-		OverCPS = over_CPS;
+	public void setOver_CPS(boolean overCPS) {
+		OverCPS = overCPS;
 	}
 
 	public void setLastStats(Long lastStats) {
@@ -141,27 +141,27 @@ public class PlayerProfil {
 	}
 
 	public void addCookies(Long cookies) {
-		cookies = cookies + cookies;
+		cookies += cookies;
 	}
 
 	public void addProclick(Long proclick) {
-		perClick = perClick + proclick;
+		perClick += proclick;
 	}
 
 	public void addClickerclicks(Long clicks) {
-		clickerClicks = clickerClicks + clicks;
+		clickerClicks += clicks;
 	}
 
 	public void addCPS(int clicks) {
-		CPS = CPS + clicks;
+		CPS += clicks;
 	}
 
 	public void removeCookies(Long cookies) {
-		cookies = cookies - cookies;
+		cookies -= cookies;
 	}
 
 	public void removePerclick(Long proclick) {
-		perClick = perClick - proclick;
+		perClick -= proclick;
 	}
 
 	public void removeCPS(int clicks) {
