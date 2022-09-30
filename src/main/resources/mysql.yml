@@ -1,0 +1,10 @@
+# +----------------------------------------------------+
+# <                   CookieClicker                    >
+# +----------------------------------------------------+
+
+# MySQL data
+Host: localhost
+Port: '3306'
+Database: CookieClicker
+User: root
+Password: 123+

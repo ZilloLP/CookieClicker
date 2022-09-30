@@ -1,0 +1,9 @@
+name: CookieClicker
+version: '${project.version}'
+main: de.zillolp.cookieclicker.CookieClicker
+author: ZilloLP
+softdepend: [PlaceholderAPI]
+api-version: 1.13
+commands:
+  cookieclicker:
+    description: Shows the CookieClicker commands

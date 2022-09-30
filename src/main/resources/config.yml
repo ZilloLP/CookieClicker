@@ -1,0 +1,21 @@
+# +----------------------------------------------------+
+# <                   CookieClicker                    >
+# +----------------------------------------------------+
+
+# Database
+MySQL: false
+
+# Settings
+Check for updates: true
+Sound: true
+Ranking: true
+Time ranking: true
+
+# Resettimer duration in minutes
+Resettimer: 60
+# Statswall refresh duration in seconds
+Statswall refresh: 10
+
+# Protections
+Maximum CPS: 20
+AFK Cooldown Seconds: 15
