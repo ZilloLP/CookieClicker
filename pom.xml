@@ -39,7 +39,6 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>D:\Development\CookieClicker 1.8\plugins\CookieClicker.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
