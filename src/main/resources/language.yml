@@ -81,7 +81,7 @@ Clickerhologram:
   2: ''
   3: '&3Right click &7%>% &eOpen inventory'
   4: '&3Left click &7%>% &eCookieClicker'
-Resettimer: '&7%*% &a%time% &7%*%'
+Resettimer: '&7%*% &c%time% &7%*%'
 
 # Statswalls
 Statswall:

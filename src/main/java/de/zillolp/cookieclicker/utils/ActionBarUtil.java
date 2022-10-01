@@ -63,8 +63,13 @@ public class ActionBarUtil extends ReflectionUtil {
                     actionBarConstructor = chatComponentConstructor.newInstance(chatComponent, chatMessageType, player.getUniqueId());
                 }
             } else {
-                chatComponentConstructor = actionBarClass.getConstructor(String.class, boolean.class);
-                actionBarConstructor = chatComponentConstructor.newInstance("{\"text\":\"" + message + "\"}", true);
+                if (secondVersionNumber.equalsIgnoreCase("R0")) {
+                    chatComponentConstructor = actionBarClass.getConstructor(String.class, int.class);
+                    actionBarConstructor = chatComponentConstructor.newInstance("{\"text\":\"" + message + "\"}", 2);
+                } else {
+                    chatComponentConstructor = actionBarClass.getConstructor(String.class, boolean.class);
+                    actionBarConstructor = chatComponentConstructor.newInstance("{\"text\":\"" + message + "\"}", true);
+                }
             }
             sendPacket(actionBarConstructor, player);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException exception) {

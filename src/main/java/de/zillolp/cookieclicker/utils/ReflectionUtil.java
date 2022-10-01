@@ -8,12 +8,15 @@ import java.lang.reflect.Method;
 public class ReflectionUtil {
     public static String version;
     public static int versionNumber;
+    public static String secondVersionNumber;
     private static Class<?> packetClass;
 
     public static void initialize() {
         String serverPackageName = Bukkit.getServer().getClass().getPackage().getName();
         version = serverPackageName.substring(serverPackageName.lastIndexOf(".") + 1);
-        versionNumber = Integer.parseInt(version.split("_")[1]);
+        String bukkitVersion = Bukkit.getBukkitVersion().replace(".", "-");
+        versionNumber = Integer.parseInt(bukkitVersion.split("-")[1]);
+        secondVersionNumber = bukkitVersion.split("-")[2];
         try {
             if (versionNumber < 17) {
                 packetClass = Class.forName("net.minecraft.server." + version + ".Packet");
@@ -22,7 +25,7 @@ public class ReflectionUtil {
             }
         } catch (ClassNotFoundException exception) {
             exception.printStackTrace();
-            System.out.println("[CookieClicker] Error on initializing the NMS classes");
+            System.out.println("Fehler beim initialisieren der NMS Klassen");
         }
     }
 

@@ -6,7 +6,7 @@
 
     <groupId>de.zillolp</groupId>
     <artifactId>cookieclicker</artifactId>
-    <version>3.7</version>
+    <version>3.8</version>
     <packaging>jar</packaging>
 
     <name>CookieClicker</name>
@@ -39,7 +39,6 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>D:\Development\CookieClicker 1.8\plugins\CookieClicker.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
