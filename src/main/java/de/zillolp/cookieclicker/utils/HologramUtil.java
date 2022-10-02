@@ -77,6 +77,7 @@ public class HologramUtil extends ReflectionUtil {
                 }
             }
             entityArmorStandConstructor = entityArmorStandClass.getConstructor(worldClass, double.class, double.class, double.class);
+            entityArmorStandConstructor.setAccessible(true);
         } catch (ClassNotFoundException | NoSuchMethodException exception) {
             exception.printStackTrace();
             System.out.println("[CookieClicker] Error on initializing the NMS classes from the hologram");
@@ -84,6 +85,9 @@ public class HologramUtil extends ReflectionUtil {
     }
 
     public void spawn() {
+        if (player.getWorld() != location.getWorld()) {
+            return;
+        }
         double holo_height = 0;
         if (lines == null || lines.length <= 0) {
             if (versionNumber <= 8) {
