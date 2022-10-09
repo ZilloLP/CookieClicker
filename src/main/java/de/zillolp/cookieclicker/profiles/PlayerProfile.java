@@ -1,7 +1,6 @@
 package de.zillolp.cookieclicker.profiles;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Bukkit.*;
 
 import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.enums.Designs;
