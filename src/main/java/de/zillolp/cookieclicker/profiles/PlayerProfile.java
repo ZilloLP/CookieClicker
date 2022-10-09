@@ -1,5 +1,8 @@
 package de.zillolp.cookieclicker.profiles;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Bukkit.*;
+
 import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.enums.Designs;
 import de.zillolp.cookieclicker.enums.Setups;
@@ -154,7 +157,32 @@ public class PlayerProfile {
     }
 
     public void addCookies(long cookies) {
-        setCookies(getCookies() + cookies);
+        Player player = Bukkit.getPlayer(this.name);
+        assert player != null;
+        if (player.hasPermission("cookieclicker.boost.10")){
+            setCookies(getCookies() + cookies);
+        }
+        else if (player.hasPermission("cookieclicker.boost.12")){
+            setCookies(getCookies() + (long)(cookies * 1.2));
+        }
+        else if (player.hasPermission("cookieclicker.boost.15")){
+            setCookies(getCookies() + (long)(cookies * 1.5));
+        }
+        else if (player.hasPermission("cookieclicker.boost.17")){
+            setCookies(getCookies() + (long)(cookies * 1.7));
+        }
+        else if (player.hasPermission("cookieclicker.boost.20")){
+            setCookies(getCookies() + (long)(cookies * 1.2));
+        }
+        else if (player.hasPermission("cookieclicker.boost.30")){
+            setCookies(getCookies() + (cookies * 3));
+        }
+        else if (player.hasPermission("cookieclicker.boost.40")){
+            setCookies(getCookies() + (cookies * 4));
+        }
+        else {
+            setCookies(getCookies() + cookies);
+        }
     }
 
     public void addPerClick(long perClick) {
