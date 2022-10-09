@@ -159,30 +159,28 @@ public class PlayerProfile {
     public void addCookies(long cookies) {
         Player player = Bukkit.getPlayer(this.name);
         assert player != null;
-        if (player.hasPermission("cookieclicker.boost.10")){
-            setCookies(getCookies() + cookies);
+
+        float multiplicador = 1;
+
+        if (player.hasPermission("cookieclicker.boost.12")){
+            multiplicador += 1.2f;
         }
-        else if (player.hasPermission("cookieclicker.boost.12")){
-            setCookies(getCookies() + (long)(cookies * 1.2));
+        if (player.hasPermission("cookieclicker.boost.15")){
+            multiplicador += 1.5f;
         }
-        else if (player.hasPermission("cookieclicker.boost.15")){
-            setCookies(getCookies() + (long)(cookies * 1.5));
+        if (player.hasPermission("cookieclicker.boost.17")){
+            multiplicador += 1.7f;
         }
-        else if (player.hasPermission("cookieclicker.boost.17")){
-            setCookies(getCookies() + (long)(cookies * 1.7));
+        if (player.hasPermission("cookieclicker.boost.20")){
+            multiplicador += 2.0f;
         }
-        else if (player.hasPermission("cookieclicker.boost.20")){
-            setCookies(getCookies() + (long)(cookies * 1.2));
+        if (player.hasPermission("cookieclicker.boost.30")){
+            multiplicador += 3.0f;
         }
-        else if (player.hasPermission("cookieclicker.boost.30")){
-            setCookies(getCookies() + (cookies * 3));
+        if (player.hasPermission("cookieclicker.boost.40")){
+            multiplicador += 4.0f;
         }
-        else if (player.hasPermission("cookieclicker.boost.40")){
-            setCookies(getCookies() + (cookies * 4));
-        }
-        else {
-            setCookies(getCookies() + cookies);
-        }
+        setCookies(getCookies() + cookies * (long) multiplicador);
     }
 
     public void addPerClick(long perClick) {
