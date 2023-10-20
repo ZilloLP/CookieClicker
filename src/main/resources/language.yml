@@ -1,0 +1,96 @@
+# +----------------------------------------------------+
+# <                   CookieClicker                    >
+# +----------------------------------------------------+
+
+# Basic messages
+PREFIX: '&7[&6CookieClicker&7] '
+NO_PERMISSION: '&cYou have no permissions to do this!'
+ONLY_PLAYER: '&cYou have to be a player!'
+
+# Interact messages
+CLICK_MESSAGE: '&3Your cookies &7%>% &e%cookies%'
+MAX_CPS: '&cPlease reduce your clickrate!'
+AFK_MESSAGE: '&cPlease move!'
+PLAYER_STATS_INFO:
+  1: '&7-= &eStatistics from &6%name% &7=-'
+  2: '&7Place&8: &e%place%'
+  3: '&7Cookies&8: &e%cookies%'
+  4: '&7Per click&8: &e%perclick%'
+  5: '&7Clicker clicked&8: &e%clickerclicks%'
+  6: '&7--------------------------------'
+
+# Inventory titles
+HOME_TITLE: '&eCookieClicker'
+SHOP_TITLE: '&eCookieClicker | &3Shop'
+PREMIUM_SHOP_TITLE: '&eCookieClicker | &3Premium'
+DESIGN_TITLE: '&eCookieClicker | &3Design'
+
+# Item names
+PER_CLICK: '&3Per click: &e%perclick%'
+YOUR_COOKIES: '&3Your cookies: &e%cookies%'
+SHOP: '&3Shop'
+DESIGN: '&3Design'
+PREMIUM_PAGE: '&3Premium page'
+BACK: '&cBack'
+
+# Shop
+PRICE_BUYABLE: '&3Price: &a%price%'
+PRICE_NOT_BUYABLE: '&3Price: &c%price%'
+PRICE_INFO: '&3Per click: &e+ %addclick%'
+MESSAGE_NOT_BUYABLE: '&cYou dont have enough cookies!'
+
+# Design
+DESIGN_GLASS_NAME: '&7*'
+RED_GLASS: '&fRed glass'
+RED_GLASS_SELECTED: '&bRed glass'
+ORANGE_GLASS: '&fOrange glass'
+ORANGE_GLASS_SELECTED: '&bOrange glass'
+YELLOW_GLASS: '&fYellow glass'
+YELLOW_GLASS_SELECTED: '&bYellow glass'
+PINK_GLASS: '&fPink glass'
+PINK_GLASS_SELECTED: '&bPink glass'
+MAGENTA_GLASS: '&fMagenta glass'
+MAGENTA_GLASS_SELECTED: '&bMagenta glass'
+PURPLE_GLASS: '&fPurple glass'
+PURPLE_GLASS_SELECTED: '&bPurple glass'
+BROWN_GLASS: '&fBrown glass'
+BROWN_GLASS_SELECTED: '&bBrown glass'
+LIME_GLASS: '&fLime glass'
+LIME_GLASS_SELECTED: '&bLime glass'
+GREEN_GLASS: '&fGreen glass'
+GREEN_GLASS_SELECTED: '&bGreen glass'
+CYAN_GLASS: '&fCyan glass'
+CYAN_GLASS_SELECTED: '&bCyan glass'
+LIGHT_BLUE_GLASS: '&fLight blue glass'
+LIGHT_BLUE_GLASS_SELECTED: '&bLight blue glass'
+BLUE_GLASS: '&fBlue glass'
+BLUE_GLASS_SELECTED: '&bBlue glass'
+WHITE_GLASS: '&fWhite glass'
+WHITE_GLASS_SELECTED: '&bWhite glass'
+LIGHT_GRAY_GLASS: '&fLight grey glass'
+LIGHT_GRAY_GLASS_SELECTED: '&bLight grey glass'
+GRAY_GLASS: '&fGray glass'
+GRAY_GLASS_SELECTED: '&bGray glass'
+BLACK_GLASS: '&fBlack glass'
+BLACK_GLASS_SELECTED: '&bBlack glass'
+
+# Holograms
+Clickerhologram:
+  1: '&3%>% &eCookieClicker &3%<%'
+  2: ''
+  3: '&3Right click &7%>% &eOpen inventory'
+  4: '&3Left click &7%>% &eCookieClicker'
+Resettimer: '&7%*% &c%time% &7%*%'
+
+# Statswalls
+Statswall:
+  Rank Prefix:
+    1: '&e&l#1'
+    2: '&b&l#2'
+    3: '&a&l#3'
+    default: '&f&l#%number%'
+  Sign Lines:
+    1: '%*% CookieClicker %*%'
+    2: '%place%'
+    3: '%name%'
+    4: '%value% per click'

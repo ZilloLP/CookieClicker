@@ -1,0 +1,83 @@
+# +----------------------------------------------------+
+# <                   CookieClicker                    >
+# +----------------------------------------------------+
+
+Rewards:
+  1:
+    Price: 500
+    Command: /cbadmincoins add %playerName% 500
+    Lore:
+      1: ''
+      2: '&7%_>% &a500 Coins'
+  2:
+    Price: 2000
+    Command: /cbadmincoins add %playerName% 1000
+    Lore:
+      1: ''
+      2: '&7%_>% &a1.000 Coins'
+  3:
+    Price: 5000
+    Command: /lp user %playerName% permission set cb.wand.cobble true
+    Lore:
+      1: ''
+      2: '&7%_>% &bCobblestone Plotwand &7(&a/rand&7)'
+  4:
+    Price: 10000
+    Command: /lp user %playerName% permission set cb.rand.cobble true
+    Lore:
+      1: ''
+      2: '&7%_>% &bCobblestone Plotrand &7(&a/rand&7)'
+  5:
+    Price: 25000
+    Command: /cbadmincoins add %playerName% 3000
+    Lore:
+      1: ''
+      2: '&7%_>% &a3.000 Coins'
+  6:
+    Price: 100000
+    Command: /lp user %playerName% permission set cb.wand.sandstone true
+    Lore:
+      1: ''
+      2: '&7%_>% &bSandstone Plotwand &7(&a/rand&7)'
+  7:
+    Price: 200000
+    Command: /lp user %playerName% permission set cb.rand.sandstone true
+    Lore:
+      1: ''
+      2: '&7%_>% &bSandstone Plotrand &7(&a/rand&7)'
+  8:
+    Price: 500000
+    Command: /cbadmincoins add %playerName% 5000
+    Lore:
+      1: ''
+      2: '&7%_>% &a5.000 Coins'
+  9:
+    Price: 1000000
+    Command: /lp user %playerName% permission set cb.wand.brick true
+    Lore:
+      1: ''
+      2: '&7%_>% &bBrick Plotwand &7(&a/rand&7)'
+  10:
+    Price: 2000000
+    Command: /lp user %playerName% permission set cb.rand.brick true
+    Lore:
+      1: ''
+      2: '&7%_>% &bBrick Plotrand &7(&a/rand&7)'
+  11:
+    Price: 5000000
+    Command: /cbadmincoins add %playerName% 10000
+    Lore:
+      1: ''
+      2: '&7%_>% &a10.000 Coins'
+  12:
+    Price: 10000000
+    Command: /lp user %playerName% permission set cb.wand.netherbrick true
+    Lore:
+      1: ''
+      2: '&7%_>% &bNetherbrick Plotwand &7(&a/rand&7)'
+  13:
+    Price: 25000000
+    Command: /lp user %playerName% permission set cb.rand.netherbrick true
+    Lore:
+      1: ''
+      2: '&7%_>% &bNetherbrick Plotrand &7(&a/rand&7)'

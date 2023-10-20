@@ -1,0 +1,12 @@
+name: CookieClicker
+version: '4.8'
+main: de.zillolp.cookieclicker.CookieClicker
+api-version: 1.19
+author: ZilloLP
+softdepend:
+  - Multiverse-Core
+  - PlaceholderAPI
+commands:
+  cookieclicker:
+    description: Manage CookieClicker
+    usage: §7[§6CookieClicker§7] §cUse /cookieclicker help.

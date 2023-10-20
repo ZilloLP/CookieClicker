@@ -1,0 +1,39 @@
+# +----------------------------------------------------+
+# <                   CookieClicker                    >
+# +----------------------------------------------------+
+
+# Database
+MySQL: false
+
+# Settings
+Sounds: true
+Ranking: true
+Time ranking: true
+
+# Resettimer duration in minutes
+Resettimer: 60
+# Statswall refresh duration in seconds
+Statswall refresh: 10
+# The statswall can be ranked by perclick, cookies and clickerclicks
+Statswall ranktype: perclick
+
+# Protections
+Maximum CPS: 20
+AFK cooldown seconds: 15
+
+# Sound settings
+Sound volume: 5
+Sound pitch: 0
+
+# Sounds
+CLICK_ALLOW: 'ENTITY_ITEM_PICKUP'
+CLICK_DENY: 'BLOCK_ANVIL_BREAK'
+OPEN_INVENTORY: 'BLOCK_CHEST_OPEN'
+SHOP: 'BLOCK_NOTE_BLOCK_BASS'
+DESIGN: 'BLOCK_NOTE_BLOCK_BASS'
+SELECT_DESIGN: 'BLOCK_NOTE_BLOCK_PLING'
+PREMIUM_ALLOW: 'BLOCK_NOTE_BLOCK_SNARE'
+PREMIUM_DENY: 'BLOCK_ANVIL_BREAK'
+BUY_ALLOW: 'ENTITY_PLAYER_LEVELUP'
+BUY_DENY: 'BLOCK_ANVIL_BREAK'
+STATS_INFO: 'BLOCK_LAVA_POP'
