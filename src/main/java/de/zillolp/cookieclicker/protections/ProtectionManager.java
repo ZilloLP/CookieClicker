@@ -31,7 +31,7 @@ public class ProtectionManager {
     }
 
     public boolean isOverCPS(UUID uuid) {
-        return playerCPS.containsKey(uuid) && playerCPS.get(uuid) > getMaxCPS();
+        return playerCPS.containsKey(uuid) && playerCPS.getOrDefault(uuid, 1) > getMaxCPS();
     }
 
     public int getMaxCPS() {

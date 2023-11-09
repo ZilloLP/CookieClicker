@@ -35,6 +35,9 @@ public class HologramManager {
     }
 
     public void spawnHolograms(Player player) {
+        if(!(plugin.getPluginConfig().getFileConfiguration().getBoolean("Clicker holograms"))) {
+            return;
+        }
         for (Location location : plugin.getCookieClickerManager().getClickerLocations()) {
             spawnHologram(player, new TextHologram(plugin.getLanguageConfig().getTranslatedLanguages("Clickerhologram")), location);
         }

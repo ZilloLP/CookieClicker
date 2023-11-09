@@ -15,7 +15,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_20_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -33,8 +33,7 @@ public class PacketReader {
     public void inject(Player player) {
         UUID uuid = player.getUniqueId();
         String readerName = "Reader-" + uuid;
-        CraftPlayer craftPlayer = (CraftPlayer) player;
-        channel = ((Connection) ReflectionUtil.getValue(craftPlayer.getHandle().connection, "h")).channel;
+        channel = ((Connection) ReflectionUtil.getSuperValue(((CraftPlayer) player).getHandle().connection, "c")).channel;
         if (channel.pipeline() == null || channel.pipeline().get(readerName) != null) {
             return;
         }

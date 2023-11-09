@@ -9,5 +9,8 @@
         <module name="CookieClicker" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cookieclicker" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
