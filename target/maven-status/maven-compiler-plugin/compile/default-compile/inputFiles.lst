@@ -1,68 +1,69 @@
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\protections\AntiAutoClickerProtection.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\StatsSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\MySQLConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\ClickerClickListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\database\DatabaseConnector.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\InventoryManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\prices\PremiumPrice.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ReloadSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\RemoveSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\statswall\StatsWallManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\CookieClicker.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\maincommands\MainCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\manager\DatabaseManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\HelpSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\listener\ShopInventoryListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\InventoryType.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\Setup.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\hologram\HologramManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\manager\PriceManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\SubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\StatsWallListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\prices\CustomPrice.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\CustomConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\PremiumShopInventory.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\SetSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\listener\InventoryListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\manager\SetupManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\PluginConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\manager\SoundManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\manager\CookieClickerManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\timer\ResetTimerUpdater.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ResetSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\prices\NormalPrice.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ListSubCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\PlayerConnectionListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\AlltimeStatsWall.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\listener\HomeInventoryListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\LanguageConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\utils\ReflectionUtil.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\commands\maincommands\CookieClickerCommand.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\Price.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\PermissionsConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\timer\CustomTimer.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\listener\DesignInventoryListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\profiles\PlayerProfile.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\TimeStatsWall.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\StatsWallType.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\AntiAFKListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\Design.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\PacketReader.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\hologram\holograms\LineHologram.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\customconfigs\LocationConfig.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\ShopInventory.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\placeholder\PlaceholderListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\listener\PremiumShopInventoryListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\protections\ProtectionManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\events\ClickerInteractEvent.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\listener\SetupListener.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\config\ConfigManager.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\HomeInventory.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\hologram\holograms\Hologram.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\utils\ItemBuilder.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\hologram\holograms\TextHologram.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\StatsWall.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\DesignInventory.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\bstats\Metrics.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\CustomInventory.java
-D:\Development\IntelliJ\aufträge_workspace\CookieClicker 1.19\src\main\java\de\zillolp\cookieclicker\enums\SoundType.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\manager\SoundManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\PacketReader.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\CustomConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ReloadSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\InventoryType.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\listener\ShopInventoryListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\listener\InventoryListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\SubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\RemoveSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\HomeInventory.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\PluginConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\hologram\HologramManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\DesignInventory.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\hologram\holograms\TextHologram.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\CustomInventory.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\protections\AntiAutoClickerProtection.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\profiles\PlayerProfile.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\StatsWallListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\manager\CookieClickerManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\prices\PremiumPrice.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\PlayerConnectionListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\Price.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\listener\PremiumShopInventoryListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\events\ClickerInteractEvent.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\ShopInventory.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\manager\DatabaseManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\MySQLConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\hologram\holograms\Hologram.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\timer\CustomTimer.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\StatsWallType.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\utils\ReflectionUtil.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\maincommands\CookieClickerCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\ConfigManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\database\DatabaseConnector.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\CookieClicker.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\statswall\StatsWallManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\InventoryManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\timer\StatsSynchronizer.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\AntiAFKListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\protections\ProtectionManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\manager\PriceManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\timer\ResetTimerUpdater.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\listener\DesignInventoryListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ListSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\LocationConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\prices\CustomPrice.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\ClickerClickListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\hologram\holograms\LineHologram.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\SetSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\LanguageConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\AlltimeStatsWall.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\bstats\Metrics.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\Setup.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\manager\SetupManager.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\utils\ItemBuilder.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\listener\HomeInventoryListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\Design.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\TimeStatsWall.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\HelpSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\config\customconfigs\PermissionsConfig.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\ResetSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\listener\SetupListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\prices\NormalPrice.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\placeholder\PlaceholderListener.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\inventory\inventorys\PremiumShopInventory.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\maincommands\MainCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\commands\subcommands\StatsSubCommand.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\enums\SoundType.java
+D:\Development\IntelliJ\workspace\CookieClicker\src\main\java\de\zillolp\cookieclicker\statswall\statswalls\StatsWall.java

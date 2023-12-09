@@ -23,6 +23,7 @@ de\zillolp\cookieclicker\utils\ReflectionUtil.class
 de\zillolp\cookieclicker\bstats\Metrics$SimplePie.class
 de\zillolp\cookieclicker\statswall\StatsWallManager$1.class
 de\zillolp\cookieclicker\statswall\statswalls\TimeStatsWall.class
+de\zillolp\cookieclicker\timer\StatsSynchronizer.class
 de\zillolp\cookieclicker\config\customconfigs\MySQLConfig.class
 de\zillolp\cookieclicker\hologram\HologramManager.class
 de\zillolp\cookieclicker\listener\PacketReader$1.class

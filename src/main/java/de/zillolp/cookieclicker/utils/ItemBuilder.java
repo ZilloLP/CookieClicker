@@ -1,15 +1,17 @@
 package de.zillolp.cookieclicker.utils;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
 
-import java.lang.reflect.Field;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -105,22 +107,30 @@ public class ItemBuilder {
         if (itemFlags != null) {
             itemMeta.addItemFlags(itemFlags);
         }
-        if (textureURL != null) {
-            try {
-                GameProfile gameProfile = new GameProfile(UUID.randomUUID(), textureURL);
-                if (textureURL.contains("http://textures.minecraft.net/texture/")) {
-                    gameProfile.getProperties().put("textures", new Property("textures", Base64Coder.encodeString("{textures:{SKIN:{url:\"" + textureURL + "\"}}}")));
-                } else {
-                    gameProfile.getProperties().put("textures", new Property("textures", Base64Coder.encodeString("{textures:{SKIN:{url:\"" + "http://textures.minecraft.net/texture/" + textureURL + "\"}}}")));
-                }
-                Field profileField = itemMeta.getClass().getDeclaredField("profile");
-                profileField.setAccessible(true);
-                profileField.set(itemMeta, gameProfile);
-            } catch (Exception exception) {
-                exception.printStackTrace();
+        if (textureURL != null && itemMeta instanceof SkullMeta skullMeta) {
+            PlayerProfile playerProfile;
+            if (textureURL.contains("http://textures.minecraft.net/texture/")) {
+                playerProfile = getProfile(textureURL);
+            } else {
+                playerProfile = getProfile("http://textures.minecraft.net/texture/" + textureURL);
             }
+            skullMeta.setOwnerProfile(playerProfile);
         }
         itemstack.setItemMeta(itemMeta);
         return itemstack;
+    }
+
+    private PlayerProfile getProfile(String url) {
+        PlayerProfile playerProfile = Bukkit.createPlayerProfile(UUID.randomUUID());
+        PlayerTextures playerTextures = playerProfile.getTextures();
+        URL urlObject;
+        try {
+            urlObject = new URL(url);
+        } catch (MalformedURLException exception) {
+            throw new RuntimeException("Invalid URL", exception);
+        }
+        playerTextures.setSkin(urlObject);
+        playerProfile.setTextures(playerTextures);
+        return playerProfile;
     }
 }

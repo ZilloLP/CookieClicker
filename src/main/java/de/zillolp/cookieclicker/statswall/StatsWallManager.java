@@ -5,6 +5,7 @@ import de.zillolp.cookieclicker.enums.StatsWallType;
 import de.zillolp.cookieclicker.statswall.statswalls.AlltimeStatsWall;
 import de.zillolp.cookieclicker.statswall.statswalls.TimeStatsWall;
 import de.zillolp.cookieclicker.timer.ResetTimerUpdater;
+import de.zillolp.cookieclicker.timer.StatsSynchronizer;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,6 +24,7 @@ public class StatsWallManager {
     public StatsWallManager(CookieClicker plugin) {
         this.plugin = plugin;
         FileConfiguration fileConfiguration = plugin.getPluginConfig().getFileConfiguration();
+        new StatsSynchronizer(plugin, fileConfiguration.getInt("Stats synchronization", 20) * 60);
         this.rankType = fileConfiguration.getString("Statswall ranktype");
         if (rankType == null) {
             rankType = "perclick";

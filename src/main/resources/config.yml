@@ -11,6 +11,8 @@ Sounds: true
 Ranking: true
 Time ranking: true
 
+# Stats synchronization duration in minutes
+Stats synchronization: 20
 # Resettimer duration in minutes
 Resettimer: 60
 # Statswall refresh duration in seconds
