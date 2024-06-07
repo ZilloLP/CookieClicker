@@ -46,7 +46,7 @@ public class StatsWallListener implements Listener {
         event.setCancelled(true);
         Skull skull = (Skull) clickedBlock.getState();
         String name = skull.getOwner();
-        if (name == null || name.equalsIgnoreCase("MHF_Question")) {
+        if (name == null || name.isEmpty()) {
             return;
         }
         Player player = event.getPlayer();

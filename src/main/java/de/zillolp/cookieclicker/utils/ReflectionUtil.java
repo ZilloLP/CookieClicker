@@ -1,10 +1,17 @@
 package de.zillolp.cookieclicker.utils;
 
 import net.minecraft.network.protocol.Packet;
-import org.bukkit.craftbukkit.v1_20_R3.entity.CraftPlayer;
+import org.apache.commons.lang.reflect.FieldUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.v1_20_R4.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
 
 import java.lang.reflect.Field;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.UUID;
 
 public class ReflectionUtil {
     public static void sendPacket(Packet<?> packet, Player player) {
@@ -22,11 +29,9 @@ public class ReflectionUtil {
         return null;
     }
 
-    public static Object getSuperValue(Object packet, String fieldName) {
+    public static Object getProtectedValue(Object packet, String fieldName) {
         try {
-            Field field = packet.getClass().getSuperclass().getDeclaredField(fieldName);
-            field.setAccessible(true);
-            return field.get(packet);
+            return FieldUtils.readField(packet, fieldName, true);
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -41,5 +46,19 @@ public class ReflectionUtil {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    public static PlayerProfile getProfile(String url) {
+        PlayerProfile playerProfile = Bukkit.createPlayerProfile(UUID.randomUUID());
+        PlayerTextures playerTextures = playerProfile.getTextures();
+        URL urlObject;
+        try {
+            urlObject = new URL(url);
+        } catch (MalformedURLException exception) {
+            throw new RuntimeException("Invalid URL", exception);
+        }
+        playerTextures.setSkin(urlObject);
+        playerProfile.setTextures(playerTextures);
+        return playerProfile;
     }
 }

@@ -95,7 +95,7 @@ public class PlayerProfile {
     }
 
     public long getPrice(Price price) {
-        return prices.get(price);
+        return prices.getOrDefault(price, 0L);
     }
 
     public void addCookies(long cookies) {

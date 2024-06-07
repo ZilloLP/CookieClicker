@@ -35,7 +35,7 @@ public class HologramManager {
     }
 
     public void spawnHolograms(Player player) {
-        if(!(plugin.getPluginConfig().getFileConfiguration().getBoolean("Clicker holograms"))) {
+        if (!(plugin.getPluginConfig().getFileConfiguration().getBoolean("Clicker holograms"))) {
             return;
         }
         for (Location location : plugin.getCookieClickerManager().getClickerLocations()) {

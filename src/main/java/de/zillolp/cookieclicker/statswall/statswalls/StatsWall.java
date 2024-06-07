@@ -4,6 +4,7 @@ import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.config.customconfigs.LanguageConfig;
 import de.zillolp.cookieclicker.profiles.PlayerProfile;
 import de.zillolp.cookieclicker.statswall.StatsWallManager;
+import de.zillolp.cookieclicker.utils.ReflectionUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -62,8 +63,12 @@ public abstract class StatsWall implements Runnable {
                 }
                 Skull skull = (Skull) headState;
                 Sign sign = (Sign) signState;
-                skull.setOwner(name);
-                skull.update();
+                if (plugin.getDatabaseManager().playerExists(name)) {
+                    skull.setOwner(name);
+                } else {
+                    skull.setOwnerProfile(ReflectionUtil.getProfile("http://textures.minecraft.net/texture/badc048a7ce78f7dad72a07da27d85c0916881e5522eeed1e3daf217a38c1a"));
+                }
+                skull.update(true);
                 sign.setLine(0, lines[0]);
                 sign.setLine(1, lines[1]);
                 sign.setLine(2, lines[2]);
