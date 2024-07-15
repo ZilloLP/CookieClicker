@@ -6,7 +6,7 @@
 
     <groupId>de.zillolp</groupId>
     <artifactId>CookieClicker</artifactId>
-    <version>5.0 - 1.20.6</version>
+    <version>5.1 - 1.21</version>
     <packaging>jar</packaging>
 
     <name>CookieClicker</name>
@@ -39,9 +39,9 @@
                         </goals>
                         <id>remap-obf</id>
                         <configuration>
-                            <srgIn>org.spigotmc:minecraft-server:1.20.6-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
+                            <srgIn>org.spigotmc:minecraft-server:1.21-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
                             <reverse>true</reverse>
-                            <remappedDependencies>org.spigotmc:spigot:1.20.6-R0.1-SNAPSHOT:jar:remapped-mojang
+                            <remappedDependencies>org.spigotmc:spigot:1.21-R0.1-SNAPSHOT:jar:remapped-mojang
                             </remappedDependencies>
                             <remappedArtifactAttached>true</remappedArtifactAttached>
                             <remappedClassifierName>remapped-obf</remappedClassifierName>
@@ -57,8 +57,8 @@
                             <inputFile>
                                 ${project.build.directory}/${project.artifactId}-${project.version}-remapped-obf.jar
                             </inputFile>
-                            <srgIn>org.spigotmc:minecraft-server:1.20.6-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
-                            <remappedDependencies>org.spigotmc:spigot:1.20.6-R0.1-SNAPSHOT:jar:remapped-obf
+                            <srgIn>org.spigotmc:minecraft-server:1.21-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
+                            <remappedDependencies>org.spigotmc:spigot:1.21-R0.1-SNAPSHOT:jar:remapped-obf
                             </remappedDependencies>
                         </configuration>
                     </execution>
@@ -67,7 +67,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.3</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -76,7 +76,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>D:/Development/CookieClicker/CookieClicker 1.20.6/plugins/CookieClicker.jar
+                            <outputFile>D:/Development/CookieClicker/CookieClicker 1.21/plugins/CookieClicker.jar
                             </outputFile>
                         </configuration>
                     </execution>
@@ -110,7 +110,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.20.6-R0.1-SNAPSHOT</version>
+            <version>1.21-R0.1-SNAPSHOT</version>
             <classifier>remapped-mojang</classifier>
             <scope>provided</scope>
         </dependency>

@@ -3,7 +3,7 @@ package de.zillolp.cookieclicker.utils;
 import net.minecraft.network.protocol.Packet;
 import org.apache.commons.lang.reflect.FieldUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_20_R4.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_21_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.profile.PlayerProfile;
 import org.bukkit.profile.PlayerTextures;

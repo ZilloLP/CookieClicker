@@ -1,13 +1,15 @@
 package de.zillolp.cookieclicker.hologram.holograms;
 
 import de.zillolp.cookieclicker.utils.ReflectionUtil;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket;
 import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.phys.Vec3;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_20_R4.CraftWorld;
+import org.bukkit.craftbukkit.v1_21_R1.CraftWorld;
 import org.bukkit.entity.Player;
 
 import java.util.Collections;
@@ -22,7 +24,10 @@ public class LineHologram extends Hologram {
 
     @Override
     public void spawn(Player player, Location location) {
-        armorStand = new ArmorStand(((CraftWorld) location.getWorld()).getHandle(), location.getX() + 0.5, location.getY(), location.getZ() + 0.5);
+        double x = location.getX() + 0.5;
+        double y = location.getY();
+        double z = location.getZ() + 0.5;
+        armorStand = new ArmorStand(((CraftWorld) location.getWorld()).getHandle(), x, y, z);
 
         armorStand.setInvisible(true);
         armorStand.setCustomNameVisible(true);
@@ -32,7 +37,7 @@ public class LineHologram extends Hologram {
         armorStand.setSilent(true);
         armorStand.setMarker(true);
 
-        ReflectionUtil.sendPacket(new ClientboundAddEntityPacket(armorStand), player);
+        ReflectionUtil.sendPacket(new ClientboundAddEntityPacket(armorStand.getId(), armorStand.getUUID(), x, y, z, 0, 0 , armorStand.getType(), 0, new Vec3(0, 0, 0), armorStand.getYHeadRot()), player);
         changeLine(player, line);
     }
 

@@ -16,7 +16,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_20_R4.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_21_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
@@ -30,7 +30,7 @@ public class PacketReader {
 
     public PacketReader(CookieClicker plugin) {
         this.plugin = plugin;
-        isSpigot = Bukkit.getServer().getName().equalsIgnoreCase("spigot");
+        isSpigot = Bukkit.getServer().getName().equalsIgnoreCase("spigot") || Bukkit.getServer().getName().equalsIgnoreCase("CraftBukkit");
     }
 
     public void inject(Player player) {

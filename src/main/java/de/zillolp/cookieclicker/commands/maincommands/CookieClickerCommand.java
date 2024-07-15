@@ -18,6 +18,10 @@ public class CookieClickerCommand extends MainCommand {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         LanguageConfig languageConfig = plugin.getLanguageConfig();
+        if(plugin.checkVersion()) {
+            sender.sendMessage(languageConfig.getTranslatedLanguage("PREFIX") + "§cYou are using the CookieClicker version for 1.21 on a non 1.21 server, which is why the plugin has not started!");
+            return true;
+        }
         if (!(plugin.getDatabaseConnector().checkConnection())) {
             sender.sendMessage(languageConfig.getTranslatedLanguage("PREFIX") + "§cThe plugin isn't connected to the database!");
             return true;

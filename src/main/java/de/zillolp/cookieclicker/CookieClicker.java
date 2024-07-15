@@ -46,7 +46,11 @@ public final class CookieClicker extends JavaPlugin {
         this.plugin = this;
         this.registerConfigs();
         this.connectDatabase();
-        if (!(databaseConnector.checkConnection())) {
+        if ((!(databaseConnector.checkConnection())) || checkVersion()) {
+            if(checkVersion()) {
+                getLogger().warning("You are using the CookieClicker version for 1.21 on a non 1.21 server, which is why the plugin does not start!");
+                getLogger().warning("Change your version to a version programmed for your server version.");
+            }
             this.getCommand("cookieclicker").setExecutor(new CookieClickerCommand(plugin));
             return;
         }
@@ -59,7 +63,7 @@ public final class CookieClicker extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if (!(databaseConnector.checkConnection())) {
+        if ((!(databaseConnector.checkConnection())) || checkVersion()) {
             return;
         }
         this.unloadPlayers();
@@ -163,6 +167,11 @@ public final class CookieClicker extends JavaPlugin {
         for (Player player : Bukkit.getOnlinePlayers()) {
             cookieClickerManager.unregisterPlayer(player, false);
         }
+    }
+
+    public boolean checkVersion() {
+        String bukkitVersion = Bukkit.getBukkitVersion().replace(".", "-");
+        return Integer.parseInt(bukkitVersion.split("-")[1]) < 21;
     }
 
     public PluginConfig getPluginConfig() {
