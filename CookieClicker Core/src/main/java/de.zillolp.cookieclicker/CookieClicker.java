@@ -11,6 +11,7 @@ import de.zillolp.cookieclicker.database.DatabaseManager;
 import de.zillolp.cookieclicker.enums.CustomInventoryType;
 import de.zillolp.cookieclicker.handler.ClickerHandler;
 import de.zillolp.cookieclicker.interfaces.ItemBuilder;
+import de.zillolp.cookieclicker.interfaces.NmsBridge;
 import de.zillolp.cookieclicker.interfaces.PacketReader;
 import de.zillolp.cookieclicker.listener.*;
 import de.zillolp.cookieclicker.listener.inventories.*;
@@ -51,6 +52,7 @@ public class CookieClicker extends JavaPlugin {
     private SoundManager soundManager;
     private ClickerEventManager clickerEventManager;
     private ReflectionUtil reflectionUtil;
+    private NmsBridge nmsBridge;
     private ItemBuilder itemBuilder;
     private ClickerHandler clickerHandler;
     private PacketReader packetReader;
@@ -65,6 +67,7 @@ public class CookieClicker extends JavaPlugin {
         }
         registerManager();
         reflectionUtil = new ReflectionUtil(this);
+        nmsBridge = versionManager.getNmsBridge();
         clickerHandler = new ClickerHandler(this);
         itemBuilder = versionManager.getItemBuilder();
         packetReader = versionManager.getPacketReader();
@@ -307,6 +310,10 @@ public class CookieClicker extends JavaPlugin {
 
     public ReflectionUtil getReflectionUtil() {
         return reflectionUtil;
+    }
+
+    public NmsBridge getNmsBridge() {
+        return nmsBridge;
     }
 
     public ItemBuilder getItemBuilder() {

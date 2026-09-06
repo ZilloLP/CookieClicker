@@ -4,6 +4,7 @@ import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.enums.GameVersion;
 import de.zillolp.cookieclicker.interfaces.Hologram;
 import de.zillolp.cookieclicker.interfaces.ItemBuilder;
+import de.zillolp.cookieclicker.interfaces.NmsBridge;
 import de.zillolp.cookieclicker.interfaces.PacketReader;
 
 import java.lang.reflect.InvocationTargetException;
@@ -71,9 +72,15 @@ public class VersionManager {
 
     public PacketReader getPacketReader() {
         String packagePath = "listener.PacketReader";
-        PacketReader packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
+        PacketReader packetReader = null;
+        System.out.println(versionNumber + ", " + subVersion);
         if (versionNumber <= 20 && subVersion < GameVersion.v1_20_R4.getSubVersionNumber()) {
             packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R1, plugin);
+        } else if (versionNumber <= 21){
+            packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin);
+            System.out.println("Attempt to load but not found");
+        }else if (versionNumber == 26){
+            packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
         }
         if (packetReader == null) {
             logger.log(Level.SEVERE, "VersionManager could not find a valid PacketReader implementation for this server version.");
@@ -83,7 +90,7 @@ public class VersionManager {
 
     public ItemBuilder getItemBuilder() {
         String packagePath = "utils.ItemBuilder";
-        ItemBuilder itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
+        ItemBuilder itemBuilder = null;
         if (versionNumber == 20) {
             if (subVersion < GameVersion.v1_20_R4.getSubVersionNumber()) {
                 itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v1_20_R1, plugin);
@@ -109,7 +116,7 @@ public class VersionManager {
 
     public Hologram getHologram(String line) {
         String packagePath = "holograms.Hologram";
-        Hologram hologram = (Hologram) getPackageObject(packagePath, GameVersion.v26_R2, plugin, line);
+        Hologram hologram = null;
         switch (versionNumber) {
             case 20:
                 if (subVersion <= GameVersion.v1_20_R1.getSubVersionNumber()) {
@@ -121,8 +128,11 @@ public class VersionManager {
                 } else if (subVersion <= GameVersion.v1_20_R3.getSubVersionNumber()) {
                     hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R3, plugin, line);
                     break;
+                }else if (subVersion <= GameVersion.v1_20_R4.getSubVersionNumber()) {
+                    hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin, line);
+                    break;
                 }
-                hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin, line);
+                hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_21_R5, plugin, line);
                 break;
             case 21:
                 if (subVersion <= GameVersion.v1_21_R1.getSubVersionNumber()) {
@@ -155,6 +165,20 @@ public class VersionManager {
             logger.log(Level.SEVERE, "VersionManager could not find a valid Hologram implementation for this server version.");
         }
         return hologram;
+    }
+
+    public NmsBridge getNmsBridge() {
+        String packagePath = "utils.NmsBridge";
+        NmsBridge nmsBridge = null;
+        if (versionNumber == 26) {
+            nmsBridge = (NmsBridge) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
+        }else{
+            nmsBridge = (NmsBridge) getPackageObject(packagePath, GameVersion.v1_21_R8, plugin);
+        }
+        if (nmsBridge == null) {
+            logger.log(Level.SEVERE, "VersionManager could not find a valid NmsBridge implementation for this server version.");
+        }
+        return nmsBridge;
     }
 
     private Object getPackageObject(String ClassName, GameVersion gameVersion, Object... Objects) {

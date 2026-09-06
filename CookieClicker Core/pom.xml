@@ -15,12 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <build>
-        <plugins>
-
-        </plugins>
-    </build>
-
     <repositories>
         <repository>
             <id>placeholderapi</id>
@@ -38,7 +32,8 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>26.2-R0.1-SNAPSHOT</version>
+            <version>1.21.11-R0.2-SNAPSHOT</version>
+            <classifier>remapped-mojang</classifier>
             <scope>provided</scope>
         </dependency>
         <dependency>

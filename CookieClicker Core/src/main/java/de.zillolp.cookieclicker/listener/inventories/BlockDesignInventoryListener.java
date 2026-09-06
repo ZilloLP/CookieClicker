@@ -9,7 +9,6 @@ import de.zillolp.cookieclicker.manager.CookieClickerManager;
 import de.zillolp.cookieclicker.manager.DesignManager;
 import de.zillolp.cookieclicker.profiles.ClickerInventoryProfile;
 import de.zillolp.cookieclicker.profiles.ClickerStatsProfile;
-import de.zillolp.cookieclicker.utils.ReflectionUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -23,13 +22,11 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class BlockDesignInventoryListener extends CustomInventoryListener {
-    private final ReflectionUtil reflectionUtil;
     private final CookieClickerManager cookieClickerManager;
     private final DesignManager designManager;
 
     public BlockDesignInventoryListener(CookieClicker plugin, CustomInventoryType customInventoryType) {
         super(plugin, customInventoryType);
-        reflectionUtil = plugin.getReflectionUtil();
         cookieClickerManager = plugin.getCookieClickerManager();
         designManager = plugin.getDesignManager();
     }
@@ -96,7 +93,7 @@ public class BlockDesignInventoryListener extends CustomInventoryListener {
                         player.sendBlockChange(location, block.getBlockData());
                         continue;
                     }
-                    reflectionUtil.sendSkullBlock(player, location, block.getBlockData(), ((Skull) block.getState()).getOwnerProfile());
+                    plugin.getNmsBridge().sendSkullBlock(player, location, block.getBlockData(), ((Skull) block.getState()).getOwnerProfile());
                 }
             } else if (displayName.equalsIgnoreCase(languageConfig.getPriceLanguage(PluginLanguage.ITEM_BOUGHT, shopType, id, price)) && inventoryAction == InventoryAction.PICKUP_ALL) {
                 clickerStatsProfile.setBlockDesign(id);

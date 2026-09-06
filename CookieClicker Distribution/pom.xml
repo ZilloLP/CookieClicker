@@ -65,61 +65,61 @@
             <artifactId>cookieclicker-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R8</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R7</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R5</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R4</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R3</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R2</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_21_R1</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_20_R4</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_20_R3</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_20_R2</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>de.zillolp</groupId> -->
-        <!--     <artifactId>spigot_1_20_R1</artifactId> -->
-        <!--     <version>${project.parent.version}</version> -->
-        <!-- </dependency> -->
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R8</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R7</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R5</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R4</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R3</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_21_R1</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_20_R4</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_20_R3</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_20_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_1_20_R1</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>de.zillolp</groupId>
             <artifactId>spigot_26_R2</artifactId>

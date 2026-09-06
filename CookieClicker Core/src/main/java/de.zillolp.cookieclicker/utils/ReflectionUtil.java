@@ -8,16 +8,7 @@ import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.manager.VersionManager;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
-import net.minecraft.world.item.component.ResolvableProfile;
-import net.minecraft.world.level.block.entity.BlockEntityTypes;
-import net.minecraft.world.level.block.entity.SkullBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang.reflect.FieldUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -86,13 +77,12 @@ public class ReflectionUtil {
     }
 
     public void sendPacket(Packet<?> packet, Player player) {
-        String sendFieldName;
-        if (((versionNumber == 20 && subVersion > 5) || versionNumber >= 21)) {
-            sendFieldName = "send";
-        } else if (versionNumber <= 20 && subVersion <= 1) {
+        String sendFieldName = "b";
+        if (versionNumber >= 26) {
+           sendFieldName = "send";
+        }
+        if (versionNumber <= 20 && subVersion <= 1) {
             sendFieldName = "a";
-        } else {
-            sendFieldName = "b";
         }
         Object playerConnection = getPlayerConnection(player);
         try {
@@ -103,159 +93,20 @@ public class ReflectionUtil {
         }
     }
 
-    public void sendRealPlayerSkullBlock(Player player, Location location, BlockData blockData) {
-        boolean isSpigot = isSpigot();
-        GameProfile gameProfile;
-        try {
-            Object craftPlayer = getCraftObjectClass(isSpigot, "entity.CraftPlayer").cast(player);
-            gameProfile = (GameProfile) craftPlayer.getClass().getMethod("getProfile").invoke(craftPlayer);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exception) {
-            logger.log(Level.SEVERE, "Error extracting GameProfile from CraftPlayer", exception);
-            return;
-        }
-        sendSkullBlockInternal(player, location, blockData, gameProfile, null, isSpigot);
-    }
-
-    public void sendSkullBlock(Player player, Location location, BlockData blockData, PlayerProfile playerProfile) {
-        GameProfile gameProfile = convertPlayerProfileToGameProfile(playerProfile);
-        sendSkullBlockInternal(player, location, blockData, gameProfile, playerProfile, isSpigot());
-    }
-
-    private void sendSkullBlockInternal(Player player, Location location, BlockData blockData, GameProfile gameProfile, PlayerProfile playerProfile, boolean isSpigot) {
-        World world = location.getWorld();
-        if (world == null) {
-            return;
-        }
-
-        String blockStateFieldName = getBlockStateFieldName();
-        BlockPos blockPos = new BlockPos(location.getBlockX(), location.getBlockY(), location.getBlockZ());
-        SkullBlockEntity skullBlockEntity = new SkullBlockEntity(blockPos, (BlockState) getServerObject(blockData.createBlockState(), getCraftObjectClass(isSpigot, "block.CraftBlockState")));
-        skullBlockEntity.setLevel((net.minecraft.world.level.Level) getServerObject(world, getCraftObjectClass(isSpigot, "CraftWorld")));
-
-        if (versionNumber <= 20 && subVersion < 6) {
-            setValue(skullBlockEntity, getOwnerFieldNameOldVersion(), gameProfile);
-            sendPacket(new ClientboundBlockUpdatePacket(blockPos, (BlockState) invokeMethod(skullBlockEntity, blockStateFieldName)), player);
-            sendPacket(ClientboundBlockEntityDataPacket.create(skullBlockEntity), player);
-        } else {
-            setValue(skullBlockEntity, getOwnerFieldNameNewVersion(), getResolvedProfile(gameProfile));
-            sendPacket(new ClientboundBlockUpdatePacket(blockPos, (BlockState) invokeMethod(skullBlockEntity, blockStateFieldName)), player);
-            try {
-                CompoundTag profileTag = createProfileTag(gameProfile, playerProfile);
-                CompoundTag nbtTag = new CompoundTag();
-                nbtTag.put("profile", profileTag);
-                sendPacket(new ClientboundBlockEntityDataPacket(blockPos, BlockEntityTypes.SKULL, nbtTag), player);
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exception) {
-                logger.log(Level.SEVERE, "Error creating manual NBT packet", exception);
-            }
-        }
-    }
-
-    private String getBlockStateFieldName() {
-        if (versionNumber >= 26) {
-            return "getBlockState";
-        }
-        if (versionNumber <= 20) {
-            if (subVersion <= 2) {
-                return "q";
-            } else if (subVersion < 6) {
-                return "r";
-            } else {
-                return "n";
-            }
-        } else if (subVersion <= 2) {
-            return "n";
-        } else if (subVersion < 10) {
-            return "m";
-        }
-        return "o";
-    }
-
-    private String getOwnerFieldNameOldVersion() {
-        return subVersion == 2 ? "g" : "f";
-    }
-
-    private String getOwnerFieldNameNewVersion() {
-        if (versionNumber >= 26) {
-            return "owner";
-        }
-        if (versionNumber <= 20 || subVersion <= 4) {
-            return "i";
-        } else if (subVersion < 10) {
-            return "h";
-        }
-        return "d";
-    }
-
-    private String getIdMethodName() {
+    public String getIdMethodName() {
         return (versionNumber < 21 || (versionNumber == 21 && subVersion < 9)) ? "getId" : "id";
     }
 
-    private String getNameMethodName() {
+    public String getNameMethodName() {
         return (versionNumber < 21 || (versionNumber == 21 && subVersion < 9)) ? "getName" : "name";
     }
 
-    private String getPropertiesMethodName() {
+    public String getPropertiesMethodName() {
         return (versionNumber < 21 || (versionNumber == 21 && subVersion < 9)) ? "getProperties" : "properties";
     }
 
-    private String getPropertyValueName() {
+    public String getPropertyValueName() {
         return (versionNumber == 20 && subVersion <= 1) ? "getValue" : "value";
-    }
-
-    private int[] convertUuidToIntArray(UUID uuid) {
-        return new int[]{
-                (int) (uuid.getMostSignificantBits() >> 32),
-                (int) uuid.getMostSignificantBits(),
-                (int) (uuid.getLeastSignificantBits() >> 32),
-                (int) uuid.getLeastSignificantBits()
-        };
-    }
-
-    private CompoundTag createProfileTag(GameProfile gameProfile, PlayerProfile playerProfile) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        CompoundTag profileTag = new CompoundTag();
-        UUID uuid = (UUID) gameProfile.getClass().getMethod(getIdMethodName()).invoke(gameProfile);
-        profileTag.putIntArray("id", convertUuidToIntArray(uuid));
-        profileTag.putString("name", (String) gameProfile.getClass().getMethod(getNameMethodName()).invoke(gameProfile));
-
-        if (playerProfile != null) {
-            URL skinURL = playerProfile.getTextures().getSkin();
-            if (skinURL != null) {
-                addCustomTextureProperty(profileTag, skinURL);
-                return profileTag;
-            }
-        }
-
-        addGameProfileProperties(profileTag, gameProfile);
-        return profileTag;
-    }
-
-    private void addCustomTextureProperty(CompoundTag profileTag, URL skinURL) {
-        ListTag propertiesList = new ListTag();
-        CompoundTag propertyTag = new CompoundTag();
-        propertyTag.putString("name", "textures");
-        propertyTag.putString("value", Base64.getEncoder().encodeToString(
-                String.format("{\"textures\":{\"SKIN\":{\"url\":\"%s\"}}}", skinURL)
-                        .getBytes(StandardCharsets.UTF_8)
-        ));
-        propertiesList.add(propertyTag);
-        profileTag.put("properties", propertiesList);
-    }
-
-    private void addGameProfileProperties(CompoundTag profileTag, GameProfile gameProfile) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        PropertyMap propertyMap = (PropertyMap) gameProfile.getClass().getMethod(getPropertiesMethodName()).invoke(gameProfile);
-        if (!propertyMap.isEmpty()) {
-            ListTag propertiesList = new ListTag();
-            for (Property property : propertyMap.get("textures")) {
-                CompoundTag propertyTag = new CompoundTag();
-                propertyTag.putString("name", property.name());
-                propertyTag.putString("value", property.value());
-                if (property.signature() != null) {
-                    propertyTag.putString("signature", property.signature());
-                }
-                propertiesList.add(propertyTag);
-            }
-            profileTag.put("properties", propertiesList);
-        }
     }
 
     public GameProfile convertPlayerProfileToGameProfile(PlayerProfile playerProfile) {
@@ -401,29 +252,6 @@ public class ReflectionUtil {
         return completableFuture;
     }
 
-    public Object getResolvedProfile(Object gameProfile) {
-        try {
-            Class<?> resolvableProfileClass = ResolvableProfile.class;
-            Class<?> gameProfileClass = gameProfile.getClass();
-            GameProfile preparedProfile = (GameProfile) gameProfile;
-            if (versionNumber >= 26) {
-                return resolvableProfileClass.getMethod("createResolved", gameProfileClass).invoke(null, preparedProfile);
-            } else if (versionNumber < 21 || (versionNumber == 21 && subVersion < 10)) {
-                return resolvableProfileClass.getConstructor(gameProfileClass).newInstance(preparedProfile);
-            } else {
-                try {
-                    return resolvableProfileClass.getConstructor(gameProfileClass).newInstance(preparedProfile);
-                } catch (NoSuchMethodException ignored) {
-                    return resolvableProfileClass.getMethod("a", gameProfileClass).invoke(null, preparedProfile);
-                }
-            }
-        } catch (InvocationTargetException | InstantiationException | IllegalAccessException |
-                 NoSuchMethodException exception) {
-            logger.log(Level.SEVERE, "Error creating resolved profile", exception);
-            return null;
-        }
-    }
-
     public CompletableFuture<String> getTextureURL(String playerName) {
         String inputName = playerName.toLowerCase();
         CompletableFuture<String> completableFuture = new CompletableFuture<>();
@@ -505,7 +333,7 @@ public class ReflectionUtil {
 
     public Object getPlayerConnection(Player player) {
         String connectionFieldName = "c";
-        if (((versionNumber == 20 && subVersion > 5) || versionNumber >= 21)) { //!isSpigot() &&
+        if(versionNumber >= 26){
             connectionFieldName = "connection";
         } else if (versionNumber >= 21 && subVersion > 1) {
             if (subVersion <= 5) {
@@ -514,6 +342,7 @@ public class ReflectionUtil {
                 connectionFieldName = "g";
             }
         }
+        System.out.println(isSpigot() + ", " + connectionFieldName);
         return getValue(getServerObject(player, getCraftObjectClass(isSpigot(), "entity.CraftPlayer")), connectionFieldName);
     }
 
