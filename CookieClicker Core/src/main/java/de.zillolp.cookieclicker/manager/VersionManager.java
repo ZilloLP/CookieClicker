@@ -73,12 +73,10 @@ public class VersionManager {
     public PacketReader getPacketReader() {
         String packagePath = "listener.PacketReader";
         PacketReader packetReader = null;
-        System.out.println(versionNumber + ", " + subVersion);
         if (versionNumber <= 20 && subVersion < GameVersion.v1_20_R4.getSubVersionNumber()) {
             packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R1, plugin);
         } else if (versionNumber <= 21){
             packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin);
-            System.out.println("Attempt to load but not found");
         }else if (versionNumber == 26){
             packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
         }

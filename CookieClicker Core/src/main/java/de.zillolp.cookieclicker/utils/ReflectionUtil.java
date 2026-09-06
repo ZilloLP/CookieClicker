@@ -342,7 +342,6 @@ public class ReflectionUtil {
                 connectionFieldName = "g";
             }
         }
-        System.out.println(isSpigot() + ", " + connectionFieldName);
         return getValue(getServerObject(player, getCraftObjectClass(isSpigot(), "entity.CraftPlayer")), connectionFieldName);
     }
 
