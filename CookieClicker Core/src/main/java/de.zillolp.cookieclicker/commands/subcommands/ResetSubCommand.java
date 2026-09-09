@@ -100,7 +100,7 @@ public class ResetSubCommand extends SubCommand {
                     player.sendBlockChange(location, block.getBlockData());
                     continue;
                 }
-                reflectionUtil.sendSkullBlock(player, location, block.getBlockData(), ((Skull) block.getState()).getOwnerProfile());
+                plugin.getNmsBridge().sendSkullBlock(player, location, block.getBlockData(), ((Skull) block.getState()).getOwnerProfile());
             }
         }
 

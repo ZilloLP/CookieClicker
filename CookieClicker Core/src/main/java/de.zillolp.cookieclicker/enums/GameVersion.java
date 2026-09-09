@@ -11,7 +11,8 @@ public enum GameVersion {
     v1_21_R4(21, 5),
     v1_21_R5(21, 8),
     v1_21_R7(21, 10),
-    v1_21_R8(21, 11);
+    v1_21_R8(21, 11),
+    v26_R2(26, 2);
 
     private final int versionNumber;
     private final int subVersionNumber;

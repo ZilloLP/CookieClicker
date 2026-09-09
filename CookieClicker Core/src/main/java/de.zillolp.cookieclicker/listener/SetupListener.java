@@ -79,7 +79,7 @@ public class SetupListener implements Listener {
                 locationConfig.saveLocation("CookieClicker.Clicker-" + number, location);
                 plugin.getCookieClickerManager().getClickerLocations().add(location);
                 for (Player player1 : Bukkit.getOnlinePlayers()) {
-                    hologramManager.spawnHologram(player1, new TextHologram(plugin, languageConfig.getReplaceLanguages(PluginLanguage.CLICKER_HOLOGRAM, player1.getUniqueId())), location);
+                    hologramManager.spawnHologram(player1, new TextHologram(plugin, languageConfig.getReplaceLanguages(PluginLanguage.CLICKER_HOLOGRAM, player1.getUniqueId())), location.clone().add(0.5, 1, 0.5));
                     designManager.sendClickerBlockDesign(player1);
                 }
                 plugin.getServer().getScheduler().runTaskLater(plugin, () -> designManager.sendClickerBlockDesign(player), 1L);

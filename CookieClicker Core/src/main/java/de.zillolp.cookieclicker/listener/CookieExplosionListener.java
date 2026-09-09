@@ -12,11 +12,8 @@ import de.zillolp.cookieclicker.manager.ClickerEventManager;
 import de.zillolp.cookieclicker.manager.ClickerPlayerManager;
 import de.zillolp.cookieclicker.manager.HologramManager;
 import de.zillolp.cookieclicker.profiles.ClickerStatsProfile;
-import de.zillolp.cookieclicker.utils.ReflectionUtil;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
-import net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,7 +30,6 @@ import java.util.UUID;
 
 public class CookieExplosionListener implements Listener {
     private final CookieClicker plugin;
-    private final ReflectionUtil reflectionUtil;
     private final PluginConfig pluginConfig;
     private final LanguageConfig languageConfig;
     private final ClickerPlayerManager clickerPlayerManager;
@@ -42,7 +38,6 @@ public class CookieExplosionListener implements Listener {
 
     public CookieExplosionListener(CookieClicker plugin) {
         this.plugin = plugin;
-        reflectionUtil = plugin.getReflectionUtil();
         pluginConfig = plugin.getPluginConfig();
         languageConfig = plugin.getLanguageConfig();
         clickerPlayerManager = plugin.getClickerPlayerManager();
@@ -72,7 +67,7 @@ public class CookieExplosionListener implements Listener {
                 continue;
             }
             int[] entityIds = items.stream().mapToInt(Item::getEntityId).toArray();
-            reflectionUtil.sendPacket(new ClientboundRemoveEntitiesPacket(entityIds), player);
+            plugin.getNmsBridge().sendEntityRemovePacket(player, entityIds);
         }
     }
 
@@ -102,7 +97,7 @@ public class CookieExplosionListener implements Listener {
                     .mapToInt(Item::getEntityId)
                     .toArray();
             if (entityIds.length > 0) {
-                reflectionUtil.sendPacket(new ClientboundRemoveEntitiesPacket(entityIds), player);
+                plugin.getNmsBridge().sendEntityRemovePacket(player, entityIds);
             }
         }
     }
@@ -136,7 +131,7 @@ public class CookieExplosionListener implements Listener {
                 return;
             }
 
-            reflectionUtil.sendPacket(new ClientboundTakeItemEntityPacket(item.getEntityId(), player.getEntityId(), item.getItemStack().getAmount()), player);
+            plugin.getNmsBridge().sendTakeItemPacket(player, item.getEntityId(), player.getEntityId(), item.getItemStack().getAmount());
             item.remove();
             items.remove(item);
 

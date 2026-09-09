@@ -40,7 +40,6 @@
                   </excludes>
                 </filter>
               </filters>
-              <outputFile>C:\Development\CookieClicker\CookieClicker Premium\plugins\CookieClicker.jar</outputFile>
             </configuration>
           </execution>
         </executions>

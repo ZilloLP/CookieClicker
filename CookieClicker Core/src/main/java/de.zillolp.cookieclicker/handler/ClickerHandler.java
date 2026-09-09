@@ -17,7 +17,6 @@ import de.zillolp.cookieclicker.profiles.ClickerInventoryProfile;
 import de.zillolp.cookieclicker.profiles.ClickerStatsProfile;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -112,10 +111,9 @@ public class ClickerHandler {
                             }
                             int[] entityIds = cookieExplosionEvent.getItems().stream().mapToInt(Item::getEntityId).toArray();
                             if (entityIds.length > 0) {
-                                ClientboundRemoveEntitiesPacket packet = new ClientboundRemoveEntitiesPacket(entityIds);
                                 for (Player player1 : Bukkit.getOnlinePlayers()) {
                                     if (player != player1) {
-                                        plugin.getReflectionUtil().sendPacket(packet, player1);
+                                        plugin.getNmsBridge().sendEntityRemovePacket(player1, entityIds);
                                     }
                                 }
                             }

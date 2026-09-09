@@ -4,6 +4,7 @@ import de.zillolp.cookieclicker.CookieClicker;
 import de.zillolp.cookieclicker.enums.GameVersion;
 import de.zillolp.cookieclicker.interfaces.Hologram;
 import de.zillolp.cookieclicker.interfaces.ItemBuilder;
+import de.zillolp.cookieclicker.interfaces.NmsBridge;
 import de.zillolp.cookieclicker.interfaces.PacketReader;
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +19,7 @@ public class VersionManager {
     private final int subVersion;
     private final String[] wrongVersionMessage;
     private final GameVersion lowestGameVersion = GameVersion.v1_20_R1;
-    private final GameVersion highestGameVersion = GameVersion.v1_21_R8;
+    private final GameVersion highestGameVersion = GameVersion.v26_R2;
     private final int highestVersionNumber = highestGameVersion.getVersionNumber();
     private final int highestSubVersionNumber = highestGameVersion.getSubVersionNumber();
     private final int lowestVersionNumber = lowestGameVersion.getVersionNumber();
@@ -33,11 +34,20 @@ public class VersionManager {
         int tempVersionNumber = 0;
         int tempSubVersion = 0;
         try {
-            if (versionParts.length >= 2) {
-                tempVersionNumber = Integer.parseInt(versionParts[1]);
-            }
-            if (versionParts.length >= 3) {
-                tempSubVersion = Integer.parseInt(versionParts[2]);
+            if (versionParts[0].equals("1")) {
+                // Legacy format: 1.21.1-R0.1-SNAPSHOT → parts[1]=21, parts[2]=1
+                if (versionParts.length >= 2) {
+                    tempVersionNumber = Integer.parseInt(versionParts[1]);
+                }
+                if (versionParts.length >= 3) {
+                    tempSubVersion = Integer.parseInt(versionParts[2]);
+                }
+            } else {
+                // New format: 26.2.build.112-stable → parts[0]=26, parts[1]=2
+                tempVersionNumber = Integer.parseInt(versionParts[0]);
+                if (versionParts.length >= 2) {
+                    tempSubVersion = Integer.parseInt(versionParts[1]);
+                }
             }
         } catch (NumberFormatException e) {
             logger.log(Level.SEVERE, "Failed to parse server version: " + version + " - Plugin cannot verify compatibility!", e);
@@ -62,9 +72,13 @@ public class VersionManager {
 
     public PacketReader getPacketReader() {
         String packagePath = "listener.PacketReader";
-        PacketReader packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin);
+        PacketReader packetReader = null;
         if (versionNumber <= 20 && subVersion < GameVersion.v1_20_R4.getSubVersionNumber()) {
             packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R1, plugin);
+        } else if (versionNumber <= 21){
+            packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin);
+        }else if (versionNumber == 26){
+            packetReader = (PacketReader) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
         }
         if (packetReader == null) {
             logger.log(Level.SEVERE, "VersionManager could not find a valid PacketReader implementation for this server version.");
@@ -74,7 +88,7 @@ public class VersionManager {
 
     public ItemBuilder getItemBuilder() {
         String packagePath = "utils.ItemBuilder";
-        ItemBuilder itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v1_21_R5, plugin);
+        ItemBuilder itemBuilder = null;
         if (versionNumber == 20) {
             if (subVersion < GameVersion.v1_20_R4.getSubVersionNumber()) {
                 itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v1_20_R1, plugin);
@@ -87,6 +101,10 @@ public class VersionManager {
             } else {
                 itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v1_21_R5, plugin);
             }
+        } else if (versionNumber == 26) {
+            if(subVersion <= GameVersion.v26_R2.getSubVersionNumber()) {
+                itemBuilder = (ItemBuilder) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
+            }
         }
         if (itemBuilder == null) {
             logger.log(Level.SEVERE, "VersionManager could not find a valid ItemBuilder implementation for this server version.");
@@ -96,7 +114,7 @@ public class VersionManager {
 
     public Hologram getHologram(String line) {
         String packagePath = "holograms.Hologram";
-        Hologram hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_21_R5, plugin, line);
+        Hologram hologram = null;
         switch (versionNumber) {
             case 20:
                 if (subVersion <= GameVersion.v1_20_R1.getSubVersionNumber()) {
@@ -108,8 +126,11 @@ public class VersionManager {
                 } else if (subVersion <= GameVersion.v1_20_R3.getSubVersionNumber()) {
                     hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R3, plugin, line);
                     break;
+                }else if (subVersion <= GameVersion.v1_20_R4.getSubVersionNumber()) {
+                    hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin, line);
+                    break;
                 }
-                hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_20_R4, plugin, line);
+                hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_21_R5, plugin, line);
                 break;
             case 21:
                 if (subVersion <= GameVersion.v1_21_R1.getSubVersionNumber()) {
@@ -133,11 +154,29 @@ public class VersionManager {
                 }
                 hologram = (Hologram) getPackageObject(packagePath, GameVersion.v1_21_R8, plugin, line);
                 break;
+            case 26:
+                if (subVersion <= GameVersion.v26_R2.getSubVersionNumber()) {
+                    hologram = (Hologram) getPackageObject(packagePath, GameVersion.v26_R2, plugin, line);
+                }
         }
         if (hologram == null) {
             logger.log(Level.SEVERE, "VersionManager could not find a valid Hologram implementation for this server version.");
         }
         return hologram;
+    }
+
+    public NmsBridge getNmsBridge() {
+        String packagePath = "utils.NmsBridge";
+        NmsBridge nmsBridge = null;
+        if (versionNumber == 26) {
+            nmsBridge = (NmsBridge) getPackageObject(packagePath, GameVersion.v26_R2, plugin);
+        }else{
+            nmsBridge = (NmsBridge) getPackageObject(packagePath, GameVersion.v1_21_R8, plugin);
+        }
+        if (nmsBridge == null) {
+            logger.log(Level.SEVERE, "VersionManager could not find a valid NmsBridge implementation for this server version.");
+        }
+        return nmsBridge;
     }
 
     private Object getPackageObject(String ClassName, GameVersion gameVersion, Object... Objects) {

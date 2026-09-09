@@ -6,7 +6,6 @@ import de.zillolp.cookieclicker.customparticles.*;
 import de.zillolp.cookieclicker.enums.CustomParticleEffectType;
 import de.zillolp.cookieclicker.enums.ShopType;
 import de.zillolp.cookieclicker.profiles.ClickerStatsProfile;
-import de.zillolp.cookieclicker.utils.ReflectionUtil;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -95,9 +94,8 @@ public class DesignManager {
         } else {
             blockData = materialBlockData.get(type);
         }
-        ReflectionUtil reflectionUtil = plugin.getReflectionUtil();
         for (Location location : plugin.getCookieClickerManager().getClickerLocations()) {
-            reflectionUtil.sendSkullBlock(player, location, blockData, playerProfile);
+            plugin.getNmsBridge().sendSkullBlock(player, location, blockData, playerProfile);
         }
     }
 
@@ -110,9 +108,8 @@ public class DesignManager {
         } else {
             blockData = materialBlockData.get(type);
         }
-        ReflectionUtil reflectionUtil = plugin.getReflectionUtil();
         for (Location location : plugin.getCookieClickerManager().getClickerLocations()) {
-            reflectionUtil.sendRealPlayerSkullBlock(player, location, blockData);
+            plugin.getNmsBridge().sendRealPlayerSkullBlock(player, location, blockData);
         }
     }
 

@@ -120,6 +120,11 @@
             <artifactId>spigot_1_20_R1</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>de.zillolp</groupId>
+            <artifactId>spigot_26_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
